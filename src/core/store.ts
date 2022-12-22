@@ -1,19 +1,15 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import type { PreloadedState } from "@reduxjs/toolkit";
+import {
+  combineReducers,
+  configureStore,
+  PreloadedState,
+} from "@reduxjs/toolkit";
 
-import { homeApi } from "src/pages/Home/Home.api";
-import homeReducer from "src/pages/Home/Home.slice";
-
-const rootReducer = combineReducers({
-  home: homeReducer,
-  [homeApi.reducerPath]: homeApi.reducer,
-});
+const rootReducer = combineReducers({});
 
 export const createStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(homeApi.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     preloadedState,
   });
 };

@@ -1,5 +1,5 @@
-import Home from "./pages/Home";
+import Provider from "./cases/HandleNotFoundError/_Provider";
 
-const App = () => <Home />;
+const App = () => <Provider />;
 
 export default App;
