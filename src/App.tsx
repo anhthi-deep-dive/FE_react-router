@@ -1,4 +1,4 @@
-import Provider from "./cases/HandleNotFoundError/_Provider";
+import Provider from "./cases/NestedRoutes/_Provider";
 
 const App = () => <Provider />;
 
