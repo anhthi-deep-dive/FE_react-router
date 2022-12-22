@@ -1,4 +1,4 @@
-import Provider from "./cases/NestedRoutes/_Provider";
+import Provider from "./cases/LoadingData/_Provider";
 
 const App = () => <Provider />;
 

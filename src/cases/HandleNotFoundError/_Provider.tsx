@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Foo from "./Foo";
-import FooError from "./FooError";
 import Root from "./Root";
+import User from "./User";
+import UserError from "./UserError";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +12,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/foo",
-    element: <Foo />,
-    errorElement: <FooError />,
+    element: <User />,
+    errorElement: <UserError />,
   },
 ]);
 
