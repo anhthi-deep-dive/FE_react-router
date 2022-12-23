@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-const Profile = () => {
+const Root = () => {
   return (
     <div>
-      <p>Profile component</p>
+      <p>Root component</p>
       <Outlet />
     </div>
   );
 };
 
-export default Profile;
+export default Root;

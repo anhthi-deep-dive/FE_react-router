@@ -1,4 +1,4 @@
-import Provider from "./cases/HandleChildError/_Provider";
+import Provider from "./scenarios/LoadingData/_Provider";
 
 const App = () => <Provider />;
 

@@ -5,7 +5,8 @@ const Root = () => {
 
   return (
     <div>
-      Root component <i>User data: {JSON.stringify(data)}</i>
+      <p>Root component</p>
+      <i>User data: {JSON.stringify(data)}</i>
     </div>
   );
 };

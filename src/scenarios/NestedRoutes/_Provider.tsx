@@ -1,12 +1,17 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  Navigate,
+} from "react-router-dom";
 
-import Profile from "./Profile";
+import Product from "./Product";
+import Root from "./Root";
 import User from "./User";
 
 const router = createBrowserRouter([
   {
-    path: "/profile",
-    element: <Profile />,
+    path: "/root",
+    element: <Root />,
     children: [
       {
         path: "user/:userId",
@@ -14,9 +19,13 @@ const router = createBrowserRouter([
       },
       {
         path: "product/:productId?",
-        element: <i>Product Component without productId param</i>,
+        element: <Product />,
       },
     ],
+  },
+  {
+    path: "/",
+    element: <Navigate to="root/user/123" replace />,
   },
 ]);
 
