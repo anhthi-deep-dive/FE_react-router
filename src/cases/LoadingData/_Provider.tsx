@@ -2,7 +2,7 @@ import React from "react";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { loadUserData } from "./loadData";
+import { loadUserData } from "./loaders";
 const Root = React.lazy(() => import("./Root"));
 
 const router = createBrowserRouter([
