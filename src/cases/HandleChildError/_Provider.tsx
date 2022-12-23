@@ -1,19 +1,25 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import ChildError from "./ChildError";
 import Root from "./Root";
 import User from "./User";
-import UserError from "./UserError";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <div>404 Not Found</div>,
-  },
-  {
-    path: "/user",
-    element: <User />,
-    errorElement: <UserError />,
+    errorElement: <div>Root Errors</div>,
+    children: [
+      {
+        errorElement: <ChildError />,
+        children: [
+          {
+            path: "user",
+            element: <User />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 

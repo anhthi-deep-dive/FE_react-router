@@ -1,4 +1,4 @@
-import Provider from "./cases/GlobalPending/_Provider";
+import Provider from "./cases/HandleChildError/_Provider";
 
 const App = () => <Provider />;
 
