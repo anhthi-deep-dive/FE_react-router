@@ -1,4 +1,4 @@
-import Provider from "./scenarios/LoadingData/_Provider";
+import Provider from "./scenarios/DeferAwait/_Provider";
 
 const App = () => <Provider />;
 
