@@ -1,5 +1,5 @@
-import Provider from "./scenarios/DeferAwait/_Provider";
+import Pages from "./pages/Pages";
 
-const App = () => <Provider />;
+const App = () => <Pages />;
 
 export default App;

@@ -2,6 +2,8 @@ import { Suspense } from "react";
 
 import { Await, useLoaderData } from "react-router-dom";
 
+import RootChild from "./RootChild";
+
 const Root = () => {
   const loaderData = useLoaderData() as {
     getUserInfoPromise: Promise<unknown>;
@@ -15,7 +17,10 @@ const Root = () => {
           resolve={loaderData.getUserInfoPromise}
           errorElement={<div>Error on Root </div>}
         >
-          {(userInfo) => <i>Resolve data: {JSON.stringify(userInfo)}</i>}
+          <>
+            {(userInfo) => <i>Render props: {JSON.stringify(userInfo)}</i>}
+            <RootChild />
+          </>
         </Await>
       </Suspense>
     </div>
