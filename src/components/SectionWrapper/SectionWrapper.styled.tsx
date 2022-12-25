@@ -13,9 +13,10 @@ export const Wrapper = styled.div`
 export const Title = styled.p`
   background-color: #c91f37;
   color: #fff;
-  padding: 0 4px;
+  padding: 2px 8px;
   margin: 4px 0 0;
   text-align: center;
+  border-radius: 4px;
 `;
 
 export const Divider = styled.div`

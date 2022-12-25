@@ -1,6 +1,7 @@
 import { Outlet, useLocation, useNavigation } from "react-router-dom";
 
 import { Routes } from "src/common/constants";
+import GlobalLoading from "src/components/GlobalLoading";
 
 import {
   ContentWrapper,
@@ -33,7 +34,11 @@ const Dashboard = () => {
     <DashboardWrapper>
       <MenuWrapper>{renderMenuItems()}</MenuWrapper>
       <ContentWrapper>
-        <Outlet />
+        {navigation.state === "loading" ? (
+          <GlobalLoading type="navigating" />
+        ) : (
+          <Outlet />
+        )}
       </ContentWrapper>
     </DashboardWrapper>
   );

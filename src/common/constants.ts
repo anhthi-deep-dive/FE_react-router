@@ -5,10 +5,10 @@ export const Routes = Object.freeze({
     Product: {
       path: "product",
       name: "Product",
-      ProductId: {
-        path: ":productId",
-        name: "Product Detail",
-      },
+    },
+    ProductId: {
+      path: "product/:productId",
+      name: "Product Detail",
     },
     ThrowError: {
       path: "throw-error",

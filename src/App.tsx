@@ -8,11 +8,11 @@ import {
 import { createGlobalStyle } from "styled-components";
 
 import { Routes } from "./common/constants";
-import LoadingOverlay from "./components/LoadingOverlay";
+import GlobalLoading from "./components/GlobalLoading";
 import Dashboard from "./pages/Dashboard";
 import DashboardChildError from "./pages/Dashboard/DashboardChildError";
 import { getProductsLoader } from "./pages/Dashboard/Product/Product.loaders";
-import ProductDetail from "./pages/Dashboard/Product/ProductDetail";
+import ProductDetail from "./pages/Dashboard/ProductDetail";
 import ThrowError from "./pages/Dashboard/ThrowError/ThrowError";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +32,10 @@ const GlobalStyle = createGlobalStyle`
   div, a {
     box-sizing: border-box;
   }
+
+  ul > li {
+    margin: 4px 0;
+  }
 `;
 
 const App = () => {
@@ -46,17 +50,15 @@ const App = () => {
             {
               path: Routes.Dashboard.Product.path,
               element: (
-                <Suspense fallback={<div>Product component loading...</div>}>
+                <Suspense fallback={<GlobalLoading type="loading" />}>
                   <Product />
                 </Suspense>
               ),
               loader: getProductsLoader,
-              children: [
-                {
-                  path: Routes.Dashboard.Product.ProductId.path,
-                  element: <ProductDetail />,
-                },
-              ],
+            },
+            {
+              path: Routes.Dashboard.ProductId.path,
+              element: <ProductDetail />,
             },
             {
               path: Routes.Dashboard.ThrowError.path,
@@ -76,7 +78,10 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <RouterProvider router={router} fallbackElement={<LoadingOverlay />} />
+      <RouterProvider
+        router={router}
+        fallbackElement={<GlobalLoading type="initializing" />}
+      />
     </>
   );
 };
