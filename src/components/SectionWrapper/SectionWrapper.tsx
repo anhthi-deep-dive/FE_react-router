@@ -5,14 +5,19 @@ import { Divider, Title, Wrapper } from "./SectionWrapper.styled";
 interface ISectionWrapperProps {
   title: string;
   children: ReactNode;
+  isLoading?: boolean;
 }
 
-const SectionWrapper: FC<ISectionWrapperProps> = ({ title, children }) => {
+const SectionWrapper: FC<ISectionWrapperProps> = ({
+  title,
+  children,
+  isLoading,
+}) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
       <Divider />
-      {children}
+      {isLoading ? <p>Loading...</p> : children}
     </Wrapper>
   );
 };

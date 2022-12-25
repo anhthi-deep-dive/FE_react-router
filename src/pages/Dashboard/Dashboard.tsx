@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigation } from "react-router-dom";
 
 import { Routes } from "src/common/constants";
 
@@ -10,16 +10,28 @@ import {
 } from "./Dashboard.styled";
 
 const Dashboard = () => {
+  const location = useLocation();
+  const navigation = useNavigation();
+
+  console.log(navigation);
+
+  const renderMenuItems = () => {
+    const menuItems = [Routes.Dashboard.Product, Routes.Dashboard.ThrowError];
+
+    return menuItems.map((item) => (
+      <MenuItem
+        key={item.path}
+        to={item.path}
+        isActive={location.pathname.includes(item.path)}
+      >
+        {item.name}
+      </MenuItem>
+    ));
+  };
+
   return (
     <DashboardWrapper>
-      <MenuWrapper>
-        <MenuItem to={Routes.Dashboard.Product.path}>
-          {Routes.Dashboard.Product.name}
-        </MenuItem>
-        <MenuItem to={Routes.Dashboard.ThrowError.path}>
-          {Routes.Dashboard.ThrowError.name}
-        </MenuItem>
-      </MenuWrapper>
+      <MenuWrapper>{renderMenuItems()}</MenuWrapper>
       <ContentWrapper>
         <Outlet />
       </ContentWrapper>
