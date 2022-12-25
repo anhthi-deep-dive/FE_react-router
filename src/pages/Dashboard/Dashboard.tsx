@@ -1,12 +1,29 @@
 import { Outlet } from "react-router-dom";
 
-import SectionWrapper from "src/components/SectionWrapper";
+import { Routes } from "src/common/constants";
+
+import {
+  ContentWrapper,
+  DashboardWrapper,
+  MenuItem,
+  MenuWrapper,
+} from "./Dashboard.styled";
 
 const Dashboard = () => {
   return (
-    <SectionWrapper title="Dashboard component">
-      <Outlet />
-    </SectionWrapper>
+    <DashboardWrapper>
+      <MenuWrapper>
+        <MenuItem to={Routes.Dashboard.Product.path}>
+          {Routes.Dashboard.Product.name}
+        </MenuItem>
+        <MenuItem to={Routes.Dashboard.ThrowError.path}>
+          {Routes.Dashboard.ThrowError.name}
+        </MenuItem>
+      </MenuWrapper>
+      <ContentWrapper>
+        <Outlet />
+      </ContentWrapper>
+    </DashboardWrapper>
   );
 };
 

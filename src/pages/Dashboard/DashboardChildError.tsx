@@ -3,12 +3,12 @@ import { useRouteError } from "react-router-dom";
 import SectionHeader from "src/components/SectionWrapper";
 
 const DashboardChildError = () => {
-  const dataError = useRouteError();
+  const dataError = useRouteError() as { message: string };
 
   return (
     <>
       <SectionHeader title="DashboardChildError component">
-        <p>Error Detail: {JSON.stringify(dataError)}</p>
+        <p>Error Detail: {JSON.stringify(dataError.message)}</p>
       </SectionHeader>
     </>
   );
