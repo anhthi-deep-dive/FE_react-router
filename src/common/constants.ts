@@ -1,13 +1,16 @@
 export const Routes = Object.freeze({
   Dashboard: {
     path: "/dashboard",
+    fullPath: "/dashboard",
     name: "Dashboard",
     Product: {
       path: "product",
+      fullPath: "/dashboard/product",
       name: "Product",
     },
-    ProductId: {
+    ProductDetail: {
       path: "product/:productId",
+      fullPath: "/dashboard/product/:productId",
       name: "Product Detail",
     },
     ThrowError: {

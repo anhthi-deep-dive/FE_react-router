@@ -57,7 +57,7 @@ const App = () => {
               loader: getProductsLoader,
             },
             {
-              path: Routes.Dashboard.ProductId.path,
+              path: Routes.Dashboard.ProductDetail.path,
               element: <ProductDetail />,
             },
             {

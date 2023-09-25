@@ -15,11 +15,14 @@ const Product = () => {
           <li key={product.title}>
             <button
               onClick={() => {
-                navigate(
-                  generatePath(Routes.Dashboard.Product.path, {
+                const fullPath = generatePath(
+                  Routes.Dashboard.ProductDetail.fullPath,
+                  {
                     productId: product.id,
-                  })
+                  }
                 );
+
+                navigate(fullPath);
               }}
             >
               {product.title}
